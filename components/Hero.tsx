@@ -5,21 +5,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { useInView } from "react-intersection-observer";
-import { useActiveContext } from "@/context/activeSectionContext";
-import { useEffect } from "react";
+import { useActiveView } from "@/lib/hooks";
 
 export default function Hero() {
-    const { ref, inView } = useInView({
-        threshold: 0.5,
-    });
-    const { setActive, lastClick } = useActiveContext();
-
-    useEffect(() => {
-        if (inView && Date.now() - lastClick > 1000) {
-            setActive("Home");
-        }
-    }, [setActive, inView, lastClick]);
+    const { ref } = useActiveView({ sectionName: "Home", threshold: 0.5 });
 
     return (
         <section

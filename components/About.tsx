@@ -3,9 +3,7 @@
 import joinWithAnd from "@/helpers/joinWithAnd";
 import SectionHeading from "./SectionHeading";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useActiveContext } from "@/context/activeSectionContext";
-import { useEffect } from "react";
+import { useActiveView } from "@/lib/hooks";
 
 export default function About() {
     const skill = {
@@ -20,16 +18,7 @@ export default function About() {
         current: ["play with guitar"],
     };
 
-    const { ref, inView } = useInView({
-        threshold: 0.75,
-    });
-    const { setActive, lastClick } = useActiveContext();
-
-    useEffect(() => {
-        if (inView && Date.now() - lastClick > 1000) {
-            setActive("About");
-        }
-    }, [setActive, inView, lastClick]);
+    const { ref } = useActiveView({ sectionName: "About", threshold: 0.75 });
 
     return (
         <motion.section
