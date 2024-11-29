@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useActiveContext } from "@/context/activeSectionContext";
 
 export default function Header() {
-    const { active, setActive } = useActiveContext();
+    const { active, setActive, setLastClick } = useActiveContext();
 
     return (
         <header className="relative z-[999]">
@@ -34,7 +34,10 @@ export default function Header() {
                                         "text-gray-950": active === link.name,
                                     },
                                 )}
-                                onClick={() => setActive(link.name)}
+                                onClick={() => {
+                                    setLastClick(Date.now());
+                                    setActive(link.name);
+                                }}
                             >
                                 {link.name}
 

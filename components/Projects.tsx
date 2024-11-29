@@ -11,13 +11,13 @@ export default function Projects() {
     const { ref, inView } = useInView({
         threshold: 0.5,
     });
-    const { setActive } = useActiveContext();
+    const { setActive, lastClick } = useActiveContext();
 
     useEffect(() => {
-        if (inView) {
+        if (inView && Date.now() - lastClick > 1000) {
             setActive("Projects");
         }
-    }, [setActive, inView]);
+    }, [setActive, inView, lastClick]);
 
     return (
         <section ref={ref} id="projects" className="scroll-mt-28">

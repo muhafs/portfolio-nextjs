@@ -13,13 +13,13 @@ export default function Hero() {
     const { ref, inView } = useInView({
         threshold: 0.5,
     });
-    const { setActive } = useActiveContext();
+    const { setActive, lastClick } = useActiveContext();
 
     useEffect(() => {
-        if (inView) {
+        if (inView && Date.now() - lastClick > 1000) {
             setActive("Home");
         }
-    }, [setActive, inView]);
+    }, [setActive, inView, lastClick]);
 
     return (
         <section
