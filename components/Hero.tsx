@@ -5,10 +5,25 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
+import { useInView } from "react-intersection-observer";
+import { useActiveContext } from "@/context/activeSectionContext";
+import { useEffect } from "react";
 
 export default function Hero() {
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+    const { setActive } = useActiveContext();
+
+    useEffect(() => {
+        if (inView) {
+            setActive("Home");
+        }
+    }, [setActive, inView]);
+
     return (
         <section
+            ref={ref}
             id="home"
             className="mb-28 max-w-[50rem] scroll-mt-[100rem] text-center sm:mb-0"
         >

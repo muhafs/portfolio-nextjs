@@ -3,6 +3,9 @@
 import joinWithAnd from "@/helpers/joinWithAnd";
 import SectionHeading from "./SectionHeading";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useActiveContext } from "@/context/activeSectionContext";
+import { useEffect } from "react";
 
 export default function About() {
     const skill = {
@@ -17,8 +20,20 @@ export default function About() {
         current: ["play with guitar"],
     };
 
+    const { ref, inView } = useInView({
+        threshold: 0.75,
+    });
+    const { setActive } = useActiveContext();
+
+    useEffect(() => {
+        if (inView) {
+            setActive("About");
+        }
+    }, [setActive, inView]);
+
     return (
         <motion.section
+            ref={ref}
             id="about"
             className="mb-28 max-w-[45rem] scroll-mt-28 text-center leading-8 sm:mb-40"
             initial={{ opacity: 0, y: 100 }}
