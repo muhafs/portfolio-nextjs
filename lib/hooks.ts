@@ -5,9 +5,12 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { SectionName } from "./types";
 
-type useActiveViewProps = { sectionName: SectionName; threshold: number };
+type useActiveViewProps = { sectionName: SectionName; threshold?: number };
 
-export function useActiveView({ sectionName, threshold }: useActiveViewProps) {
+export function useActiveView({
+    sectionName,
+    threshold = 0.5,
+}: useActiveViewProps) {
     const { ref, inView } = useInView({
         threshold: threshold,
     });

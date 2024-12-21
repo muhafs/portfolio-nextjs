@@ -8,7 +8,7 @@ import { HiDownload } from "react-icons/hi";
 import { useActiveView } from "@/lib/hooks";
 
 export default function Hero() {
-    const { ref } = useActiveView({ sectionName: "Home", threshold: 0.5 });
+    const { ref } = useActiveView({ sectionName: "Home" });
 
     return (
         <section

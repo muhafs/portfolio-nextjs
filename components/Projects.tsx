@@ -8,11 +8,10 @@ import { useActiveView } from "@/lib/hooks";
 export default function Projects() {
     const { ref } = useActiveView({
         sectionName: "Projects",
-        threshold: 0.5,
     });
 
     return (
-        <section ref={ref} id="projects" className="scroll-mt-28">
+        <section ref={ref} id="projects" className="mb-28 scroll-mt-28">
             <SectionHeading>My projects</SectionHeading>
 
             <div>
