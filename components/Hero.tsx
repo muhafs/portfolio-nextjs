@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { useActiveView } from "@/lib/hooks";
+import { useActiveContext } from "@/context/activeSectionContext";
 
 export default function Hero() {
+    const { setActive, setLastClick } = useActiveContext();
     const { ref } = useActiveView({ sectionName: "Home" });
 
     return (
@@ -71,6 +73,10 @@ export default function Hero() {
                 <Link
                     href="#contact"
                     className="group flex items-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white outline-none transition hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105"
+                    onClick={() => {
+                        setLastClick(Date.now());
+                        setActive("Contact");
+                    }}
                 >
                     Contact me here{" "}
                     <BsArrowRight className="opacity-70 transition group-hover:translate-x-1" />
