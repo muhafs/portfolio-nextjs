@@ -1,7 +1,9 @@
-import Header from "@/components/Header";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 import ActiveSectionContextProvider from "@/context/activeSectionContext";
+import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +31,7 @@ export default function RootLayout({
                 <ActiveSectionContextProvider>
                     <Header />
                     {children}
+                    <Footer />
 
                     <Toaster position="top-right" />
                 </ActiveSectionContextProvider>
