@@ -85,27 +85,29 @@ export default function Hero() {
                 <a
                     href="/muhamad_cv.pdf"
                     download
-                    className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105"
+                    className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 outline-none transition hover:scale-110 focus:scale-110 active:scale-105 dark:bg-white/10"
                 >
                     Download CV{" "}
                     <HiDownload className="opacity-60 transition group-hover:translate-x-1" />
                 </a>
 
-                <a
-                    href="https://www.linkedin.com/in/muhafs/"
-                    target="_blank"
-                    className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 outline-none transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105"
-                >
-                    <BsLinkedin />
-                </a>
+                <div className="flex items-center justify-center gap-2">
+                    <a
+                        href="https://www.linkedin.com/in/muhafs/"
+                        target="_blank"
+                        className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 outline-none transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
+                    >
+                        <BsLinkedin />
+                    </a>
 
-                <a
-                    href="https://github.com/muhafs"
-                    target="_blank"
-                    className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 outline-none transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105"
-                >
-                    <BsGithub />
-                </a>
+                    <a
+                        href="https://github.com/muhafs"
+                        target="_blank"
+                        className="group flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 outline-none transition hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] active:scale-105 dark:bg-white/10 dark:text-white/60"
+                    >
+                        <BsGithub />
+                    </a>
+                </div>
             </motion.div>
         </section>
     );
